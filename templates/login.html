@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W-SAFE | Login</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        /* ===== BACKGROUND ===== */
+        body{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url("https://mir-s3-cdn-cf.behance.net/projects/404/635de467998251.Y3JvcCw4NDAsNjU3LDAsMTI.png");
+            background-size:cover;
+            background-position:center;
+        }
+
+        /* ===== LOGIN CARD ===== */
+        .login-card{
+            width:380px;
+            padding:40px 35px;
+            border-radius:22px;
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(18px);
+            box-shadow:0 25px 55px rgba(0,0,0,0.45);
+            text-align:center;
+            animation:fadeUp 0.8s ease;
+        }
+
+        /* ===== ICON ===== */
+        .login-icon{
+            font-size:48px;
+            color:#ffb3b3;
+            margin-bottom:10px;
+        }
+
+        /* ===== TITLE ===== */
+        .login-title{
+            color:#ffffff;
+            font-size:28px;
+            margin-bottom:6px;
+        }
+
+        .login-subtitle{
+            color:#eaeaea;
+            font-size:14px;
+            margin-bottom:25px;
+        }
+
+        /* ===== INPUTS ===== */
+        .input-group{
+            position:relative;
+            margin-bottom:18px;
+        }
+
+        .input-group i{
+            position:absolute;
+            top:50%;
+            left:14px;
+            transform:translateY(-50%);
+            color:#ff9aa2;
+        }
+
+        .input-group input{
+            width:100%;
+            padding:14px 14px 14px 42px;
+            border-radius:30px;
+            border:none;
+            outline:none;
+            font-size:15px;
+            background:rgba(255,255,255,0.9);
+        }
+
+        /* ===== BUTTON ===== */
+        .login-btn{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:35px;
+            background:linear-gradient(135deg,#ff4d6d,#ff758f);
+            color:white;
+            font-size:17px;
+            font-weight:600;
+            cursor:pointer;
+            margin-top:10px;
+            transition:transform 0.3s, box-shadow 0.3s;
+        }
+
+        .login-btn i{
+            margin-right:8px;
+        }
+
+        .login-btn:hover{
+            transform:scale(1.05);
+            box-shadow:0 15px 35px rgba(255,77,109,0.5);
+        }
+
+        /* ===== FOOTER ===== */
+        .login-footer{
+            margin-top:20px;
+            font-size:14px;
+            color:#f1f1f1;
+        }
+
+        .login-footer a{
+            color:#ffb3b3;
+            font-weight:600;
+            text-decoration:none;
+        }
+
+        .login-footer a:hover{
+            text-decoration:underline;
+        }
+
+        /* ===== ANIMATION ===== */
+        @keyframes fadeUp{
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        /* ===== MOBILE ===== */
+        @media(max-width:420px){
+            .login-card{
+                width:90%;
+                padding:35px 25px;
+            }
+
+            .login-title{
+                font-size:24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <div class="login-icon">
+        <i class="fa-solid fa-user-shield"></i>
+    </div>
+
+    <h2 class="login-title">Welcome Back</h2>
+    <p class="login-subtitle">
+        Login to access your safety dashboard
+    </p>
+
+    <form method="POST">
+
+        <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="email" placeholder="Email address" required>
+        </div>
+
+        <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="login-btn">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Login
+        </button>
+
+    </form>
+
+    <p class="login-footer">
+        New user?
+        <a href="/register">Create an account</a>
+    </p>
+
+</div>
+
+</body>
+</html>

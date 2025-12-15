@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Emergency Contact</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e8ffd9, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ===== CARD ===== */
+        .contact-card {
+            width: 420px;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 22px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== HEADER ===== */
+        .contact-card h2 {
+            text-align: center;
+            color: #2e8b57;
+            margin-bottom: 10px;
+            font-size: 26px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* ===== FORM ===== */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #2e8b57;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46,139,87,0.15);
+        }
+
+        /* ===== SAVE BUTTON ===== */
+        .save-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #2e8b57, #3cb371);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46,139,87,0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-link {
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        .footer-link a {
+            text-decoration: none;
+            color: #ff4d6d;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .footer-link a i {
+            margin-right: 6px;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 480px) {
+            .contact-card {
+                width: 92%;
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="contact-card">
+
+    <h2><i class="fa-solid fa-user-plus"></i> Add Emergency Contact</h2>
+    <p class="subtitle">Save a trusted person for emergencies</p>
+
+    <form method="post">
+        <div class="form-group">
+            <label>Contact Name</label>
+            <input type="text" name="name" placeholder="Enter contact name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" name="phone" placeholder="Enter phone number" required>
+        </div>
+
+        <button type="submit" class="save-btn">
+            <i class="fa-solid fa-floppy-disk"></i> Save Contact
+        </button>
+    </form>
+
+    <div class="footer-link">
+        <a href="/dashboard">
+            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

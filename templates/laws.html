@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Women Safety Laws</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #7a1f3d;
+            margin-bottom: 40px;
+        }
+
+        .laws-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .law-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .law-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 6px;
+            width: 100%;
+            background: linear-gradient(90deg, #e91e63, #ff4081);
+        }
+
+        .law-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .law-icon {
+            font-size: 40px;
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+
+        .law-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .law-desc {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 25px;
+            background: #7a1f3d;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #5c1530;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+    body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("https://www.togetherthrive.info/images/blogs/1703221913.jpg");
+    background-size:cover;
+    background-position:center;
+}
+ 
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>⚖️ Women Safety Laws in India</h2>
+
+    <div class="laws-grid">
+
+        <div class="law-card">
+            <div class="law-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+            <div class="law-title">Domestic Violence Act (2005)</div>
+            <div class="law-desc">
+                Protects women from physical, emotional, sexual, and economic abuse
+                by husband or family members. Ensures protection orders and legal relief.
+            </div>
+        </div>
+
+        <div class="law-card">
+            <div class="law-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="law-title">Workplace Harassment Act (2013)</div>
+            <div class="law-desc">
+                Safeguards women against sexual harassment at the workplace and
+                mandates Internal Complaints Committees (ICC).
+            </div>
+        </div>
+
+        <div class="law-card">
+            <div class="law-icon"><i class="fa-solid fa-gift"></i></div>
+            <div class="law-title">Dowry Prohibition Act</div>
+            <div class="law-desc">
+                Makes giving or taking dowry a punishable offense and protects women
+                from dowry-related cruelty and harassment.
+            </div>
+        </div>
+
+        <div class="law-card">
+            <div class="law-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <div class="law-title">Section 354 IPC</div>
+            <div class="law-desc">
+                Protects women from assault or criminal force intended to outrage
+                their modesty. Punishable with imprisonment.
+            </div>
+        </div>
+
+        <div class="law-card">
+            <div class="law-icon"><i class="fa-solid fa-eye-slash"></i></div>
+            <div class="law-title">IT Act – Cyber Crime</div>
+            <div class="law-desc">
+                Protects women from online harassment, stalking, morphing,
+                and misuse of personal data on digital platforms.
+            </div>
+        </div>
+
+        <div class="law-card">
+            <div class="law-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="law-title">Protection of Children Act (POCSO)</div>
+            <div class="law-desc">
+                Protects girls below 18 years from sexual assault, harassment,
+                and exploitation with strict punishment.
+            </div>
+        </div>
+
+    </div>
+
+    <a href="/dashboard" class="back-btn">⬅ Back to Dashboard</a>
+</div>
+
+</body>
+</html>

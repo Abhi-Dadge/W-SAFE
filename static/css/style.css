@@ -1,0 +1,360 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY (IMPORTANT)
+    
+========================= */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+}
+
+/* =========================
+   HERO / LANDING PAGE
+========================= */
+/* =======================
+   HERO SECTION
+======================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("/static/images/homePage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* =======================
+   OVERLAY WITH GRADIENT
+======================= */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.45)
+    );
+    backdrop-filter: blur(1px);
+}
+
+/* =======================
+   HERO CONTENT
+======================= */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 700px;
+    padding: 20px;
+
+    animation: fadeSlide 1.2s ease forwards;
+}
+
+/* ENTRY ANIMATION */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =======================
+   TITLE
+======================= */
+
+.hero-content h1 {
+    font-size: 58px;
+    letter-spacing: 4px;
+    font-weight: 800;
+    margin-bottom: 18px;
+
+    animation: glow 3s ease-in-out infinite;
+}
+
+/* SOFT GLOW */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+    50% { text-shadow: 0 0 25px rgba(255,255,255,0.45); }
+    100% { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+}
+
+/* =======================
+   SUBTEXT
+======================= */
+
+.hero-content p {
+    font-size: 19px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    color: #f1f1f1;
+}
+
+/* =======================
+   BUTTON GROUP
+======================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* COMMON BUTTON */
+.btn {
+    padding: 15px 17px;
+    min-width: 180px;          /* 🔥 SAME WIDTH */
+    text-align: center;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;      /* 🔥 SAME HEIGHT */
+    align-items: center;
+    justify-content: center;
+}
+/* =======================
+   LOGIN BUTTON
+======================= */
+
+.login-btn {
+    background: linear-gradient(135deg, #ff4d6d, #ff6b81);
+    color: white;
+    box-shadow: 0 15px 35px rgba(255,77,109,0.4);
+}
+
+.login-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 20px 45px rgba(255,77,109,0.6);
+}
+
+/* =======================
+   REGISTER BUTTON
+======================= */
+
+.register-btn {
+ background: linear-gradient(135deg, #ff4d6d, #ff6b81);
+    color: white;
+    box-shadow: 0 15px 35px rgba(255,77,109,0.4);
+    
+}
+.register-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 20px 45px rgba(255,77,109,0.6);
+}
+
+/* =======================
+   FLOATING PARTICLE EFFECT
+======================= */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background-image: radial-gradient(
+        rgba(255,255,255,0.08) 1px,
+        transparent 1px
+    );
+    background-size: 40px 40px;
+    animation: floatBG 25s linear infinite;
+    opacity: 0.25;
+}
+
+@keyframes floatBG {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 42px;
+        letter-spacing: 2px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 14px 30px;
+    }
+}
+
+
+/* =========================
+   DASHBOARD / ADMIN
+========================= */
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e8ffd9, #ffffff);
+}
+
+.dashboard-card,
+.admin-container {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+}
+
+
+/* Login page CSS */
+
+/* =========================
+   LOGIN PAGE STYLING
+========================= */
+
+.login-card {
+    width: 380px;
+    text-align: center;
+    animation: fadeUp 0.8s ease;
+}
+
+.login-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #ff4d6d, #ff6b81);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 28px;
+}
+
+.login-title {
+    font-size: 26px;
+    margin-bottom: 6px;
+    color: #2e8b57;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* INPUT GROUP */
+
+.input-group {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 38px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* LOGIN BUTTON */
+
+.login-btn {
+    background: linear-gradient(135deg, #ff4d6d, #ff6b81);
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255,77,109,0.4);
+}
+
+/* FOOTER */
+
+.login-footer {
+    margin-top: 18px;
+    font-size: 14px;
+    color: #555;
+}
+
+.login-footer a {
+    color: #ff4d6d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emergency Helplines</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e8ffd9, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .helpline-container {
+            width: 520px;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .helpline-container h2 {
+            font-size: 30px;
+            color: #2e8b57;
+            margin-bottom: 10px;
+        }
+
+        .helpline-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .helpline-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 22px;
+            margin-bottom: 15px;
+            border-radius: 16px;
+            background: #f9fff9;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+            font-size: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .helpline-card i {
+            font-size: 26px;
+            color: #ff4d6d;
+        }
+
+        .helpline-card:hover {
+            transform: translateY(-5px);
+            background: #e8ffd9;
+        }
+
+        .number {
+            font-size: 20px;
+            color: #2e8b57;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #ff4d6d;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .helpline-container {
+                width: 90%;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="helpline-container">
+
+    <h2>🚨 Emergency Helplines</h2>
+    <p>Quick access to important emergency numbers</p>
+
+    <div class="helpline-card">
+        <i class="fa-solid fa-person-circle-exclamation"></i>
+        <span>Women in Distress</span>
+        <span class="number">1091</span>
+    </div>
+
+    <div class="helpline-card">
+        <i class="fa-solid fa-house-crack"></i>
+        <span>Domestic Abuse</span>
+        <span class="number">181</span>
+    </div>
+
+    <div class="helpline-card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Police</span>
+        <span class="number">112</span>
+    </div>
+
+    <div class="helpline-card">
+        <i class="fa-solid fa-child"></i>
+        <span>Child Helpline</span>
+        <span class="number">1098</span>
+    </div>
+
+    <div class="helpline-card">
+        <i class="fa-solid fa-truck-medical"></i>
+        <span>Ambulance</span>
+        <span class="number">108</span>
+    </div>
+
+    <a href="/dashboard" class="back-btn">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

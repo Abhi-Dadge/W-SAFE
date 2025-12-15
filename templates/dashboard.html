@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>User Dashboard - W-SAFE</title>
+
+<script src="/static/js/sos.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top left,#78e7f3,transparent 60%),
+    radial-gradient(circle at bottom right,#ffe4ec,transparent 60%),
+    linear-gradient(135deg,#f7fff3,#ecf542);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.dashboard{
+  width:900px;
+  max-width:95%;
+  background:rgba(225,198,222,0.95);
+  border-radius:28px;
+  padding:40px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.18);
+}
+
+.header{text-align:center;margin-bottom:35px;}
+.logo{font-size:44px;font-weight:800;color:#2e8b57;}
+.welcome{margin-top:10px;font-size:18px;color:#555;}
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.menu a{
+  background:#f9fff9;
+  border-radius:22px;
+  padding:35px 15px;
+  text-align:center;
+  text-decoration:none;
+  color:#333;
+  font-weight:700;
+  box-shadow:0 15px 30px rgba(0,0,0,0.12);
+  transition:0.35s;
+}
+
+.menu a:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+/* AI BUTTON */
+.ai-btn{
+  margin:30px auto;
+  display:block;
+  padding:16px 36px;
+  font-size:20px;
+  font-weight:800;
+  border-radius:40px;
+  border:none;
+  background:linear-gradient(135deg,#6c63ff,#7f79ff);
+  color:white;
+  cursor:pointer;
+  text-decoration:none;
+  text-align:center;
+  width:260px;
+}
+
+/* PANIC */
+ .panic {
+  margin: 40px auto 25px;
+  width: 70%;                  
+  max-width: 420px;            
+  background: linear-gradient(135deg, #ff4d6d, #ff6b81);
+  color: #fff;
+  border: none;
+  padding: 20px;
+  font-size: 24px;
+  border-radius: 60px;
+  font-weight: 800;
+  cursor: pointer;
+  display: block;
+  letter-spacing: 1px;
+  box-shadow: 0 18px 40px rgba(255, 77, 109, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.panic:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 25px 55px rgba(255, 77, 109, 0.6);
+}
+
+/* Click effect */
+.panic:active {
+  transform: scale(0.97);
+}
+
+/* Pulse animation (optional but recommended) */
+.panic {
+  animation: panicPulse 1.6s infinite;
+}
+
+@keyframes panicPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 28px rgba(255, 77, 109, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 109, 0);
+  }
+}
+
+.footer{text-align:center;}
+.footer a{
+  color:#ff4d6d;
+  font-weight:800;
+  text-decoration:none;
+  margin:0 10px;
+}
+.footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 20px;
+  color: #777;
+}
+
+.footer b {
+  color: #ff4d6d;
+}
+
+.copyright {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+  font-weight: 600;
+}
+
+.copyright b {
+  color: #ff4d6d;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <div class="header">
+    <div class="logo">W-SAFE</div>
+    <p class="welcome">Welcome, <b>{{ name }}</b></p>
+  </div>
+
+  <div class="menu">
+    <a href="/contacts">👥<br>Emergency Contacts</a>
+    <a href="/helplines">☎️<br>Helplines</a>
+    <a href="/laws">⚖️<br>Women Laws</a>
+    <a href="/self_defense">🥋<br>Self Defense</a>
+    <a href="/police">🚓<br>Nearby Police</a>
+    <a href="/hospital">🏥<br>Nearby Hospital</a>
+  </div>
+
+  <!-- ✅ AI HELP (NEW PAGE) -->
+  <a href="/ai-chat" class="ai-btn">🤖 AI Help</a>
+
+  <button class="panic" onclick="sendSOS()">🚨 PANIC</button>
+
+ <div class="footer">
+  <a href="/admin-login">Admin</a> |
+  <a href="/logout">Logout</a><br><br><br>
+ 
+</div>
+
+</div>
+<p class="copyright">
+  © 2025 | Developed by <b>Abhi96k</b>
+</p>
+
+</body>
+</html>

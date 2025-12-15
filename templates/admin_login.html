@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Login | W-SAFE</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("/static/images/loginBG.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+/* ===== LOGIN CARD ===== */
+.card{
+    width:380px;
+    padding:40px 35px;
+    border-radius:22px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(18px);
+    box-shadow:0 25px 55px rgba(0,0,0,0.45);
+    text-align:center;
+    animation:fadeUp 0.8s ease;
+}
+
+/* ===== TITLE ===== */
+.card h2{
+    color:#ffffff;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#ddd;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+/* ===== INPUTS ===== */
+.input-box{
+    position:relative;
+    margin-bottom:18px;
+}
+
+.input-box i{
+    position:absolute;
+    top:50%;
+    left:14px;
+    transform:translateY(-50%);
+    color:#ffb3b3;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px 14px 14px 42px;
+    border-radius:30px;
+    border:none;
+    outline:none;
+    font-size:15px;
+    background:rgba(255,255,255,0.85);
+}
+
+/* ===== BUTTON ===== */
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:35px;
+    background:linear-gradient(135deg,#ff4d6d,#ff758f);
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:10px;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 15px 35px rgba(255,77,109,0.5);
+}
+
+/* ===== BACK LINK ===== */
+.back{
+    display:inline-block;
+    margin-top:18px;
+    color:#f0f0f0;
+    text-decoration:none;
+    font-size:14px;
+    opacity:0.85;
+}
+
+.back:hover{
+    text-decoration:underline;
+    opacity:1;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:420px){
+    .card{
+        width:90%;
+        padding:35px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>👮 Admin Login</h2>
+    <p class="subtitle">Authorized access only</p>
+
+    <form method="POST">
+        <div class="input-box">
+            <i class="fa-solid fa-user-shield"></i>
+            <input type="text" name="username" placeholder="Admin Username" required>
+        </div>
+
+        <div class="input-box">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="password" placeholder="Admin Password" required>
+        </div>
+
+        <button type="submit">Login Securely</button>
+    </form>
+
+    <a class="back" href="/dashboard">⬅ Back to User Dashboard</a>
+</div>
+
+</body>
+</html>

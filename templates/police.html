@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nearby Police Stations | W-SAFE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* ===== BODY ===== */
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top left,#e8ffd9,transparent 60%),
+        radial-gradient(circle at bottom right,#ffe4ec,transparent 60%),
+        #f7fdf8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ===== CARD ===== */
+.police-card{
+    width:900px;
+    max-width:95%;
+    background:#ffffff;
+    padding:35px;
+    border-radius:28px;
+    box-shadow:0 25px 55px rgba(0,0,0,0.18);
+    animation:fadeIn 0.6s ease;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== HEADER ===== */
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:#2e8b57;
+    font-size:36px;
+}
+
+.header p{
+    margin-top:8px;
+    color:#555;
+    font-size:16px;
+}
+
+/* ===== MAP ===== */
+.map-container{
+    width:100%;
+    height:420px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    margin-top:25px;
+}
+
+iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* ===== ACTION BAR ===== */
+.actions{
+    margin-top:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.actions a{
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:30px;
+    font-weight:700;
+    font-size:15px;
+}
+
+/* BACK BUTTON */
+.back{
+    background:#e8ffd9;
+    color:#2e8b57;
+}
+
+/* EMERGENCY CALL */
+.call{
+    background:linear-gradient(135deg,#ff4d6d,#ff6b81);
+    color:white;
+    box-shadow:0 12px 25px rgba(255,77,109,0.35);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+    .header h1{font-size:28px;}
+    .map-container{height:320px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="police-card">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🚓 Nearby Police Stations</h1>
+        <p>Quick access to police help around your location</p>
+    </div>
+
+    <!-- MAP -->
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps?q=police+station+near+me&output=embed">
+        </iframe>
+    </div>
+
+    <!-- ACTIONS -->
+        <div class="actions">
+            <a href="/dashboard" class="back">⬅ Back to Dashboard</a>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=police+station"
+            target="_blank"
+            class="call">
+            View Directions
+            </a>
+        </div>
+
+
+</div>
+
+</body>
+</html>

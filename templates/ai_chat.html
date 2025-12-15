@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Safety Assistant | W-SAFE</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#f7fff3,#e8ffd9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.chat-box{
+  width:900px;
+  max-width:95%;
+  background:#fff;
+  border-radius:26px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.2);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.chat-header{
+  background:#2e8b57;
+  color:white;
+  padding:18px;
+  font-size:22px;
+  font-weight:700;
+  text-align:center;
+}
+
+.chat-body{
+  flex:1;
+  padding:20px;
+  overflow-y:auto;
+  background:#f7fdf8;
+}
+
+.msg{
+  max-width:70%;
+  padding:14px 18px;
+  margin-bottom:12px;
+  border-radius:18px;
+  font-size:15px;
+}
+
+.user{background:#ffedf1;margin-left:auto;}
+.bot{background:#e8ffd9;}
+
+.chat-input{
+  display:flex;
+  gap:10px;
+  padding:15px;
+  border-top:1px solid #ddd;
+}
+
+.chat-input input{
+  flex:1;
+  padding:14px;
+  border-radius:30px;
+  border:1px solid #ccc;
+}
+
+.chat-input button{
+  padding:14px 24px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="chat-box">
+  <div class="chat-header">🤖 AI Safety Assistant</div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot">
+      Hello 👋 I am here to help you.  
+      You can type or use voice 🎙️
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input id="msg" placeholder="Type your message..." />
+    <button onclick="startVoice()">🎙</button>
+    <button onclick="sendMsg()">Send</button>
+  </div>
+</div>
+
+<script>
+const chat = document.getElementById("chatBody");
+const input = document.getElementById("msg");
+
+/* SEND MESSAGE */
+function sendMsg(){
+  const text = input.value.trim();
+  if(!text) return;
+
+  chat.innerHTML += `<div class="msg user">${text}</div>`;
+  input.value="";
+  chat.scrollTop = chat.scrollHeight;
+
+  fetch("/ai-reply",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({message:text})
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    chat.innerHTML += `<div class="msg bot">${data.reply}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+  });
+}
+
+/* VOICE INPUT */
+function startVoice(){
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.lang = "en-US";
+  recognition.start();
+
+  recognition.onresult = function(event){
+    input.value = event.results[0][0].transcript;
+  };
+}
+</script>
+
+</body>
+</html>

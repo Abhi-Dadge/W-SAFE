@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin – SOS Logs | W-SAFE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* ===== BODY ===== */
+body{
+    background:
+        radial-gradient(circle at top left,#e8ffd9,transparent 60%),
+        radial-gradient(circle at bottom right,#ffe4ec,transparent 60%),
+        #f4f7f6;
+    min-height:100vh;
+}
+
+/* ===== LAYOUT ===== */
+.admin-layout{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    width:260px;
+    background:#ffffff;
+    padding:30px 22px;
+    box-shadow:4px 0 18px rgba(0,0,0,0.08);
+}
+
+.sidebar h2{
+    text-align:center;
+    color:#2e8b57;
+    margin-bottom:40px;
+    letter-spacing:1px;
+}
+
+.sidebar a{
+    display:block;
+    padding:14px 18px;
+    margin-bottom:14px;
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    border-radius:14px;
+    transition:0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+    background:#e8ffd9;
+    color:#2e8b57;
+    transform:translateX(6px);
+}
+
+.logout{
+    color:#ff4d6d !important;
+}
+
+/* ===== MAIN ===== */
+.main{
+    flex:1;
+    padding:35px;
+    animation:fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+    background:#ffffff;
+    padding:18px 28px;
+    border-radius:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    margin-bottom:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.topbar h3{
+    color:#2e8b57;
+}
+
+/* ===== STATS ===== */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin-bottom:32px;
+}
+
+.stat{
+    background:#ffffff;
+    padding:22px;
+    border-radius:20px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+
+.stat:hover{
+    transform:translateY(-6px);
+}
+
+.stat h2{
+    color:#2e8b57;
+    margin-bottom:6px;
+}
+
+/* ===== ALERT ===== */
+.alert{
+    background:linear-gradient(135deg,#ff4d6d,#ff6b81);
+    color:white;
+    padding:18px;
+    border-radius:18px;
+    text-align:center;
+    font-weight:700;
+    margin-bottom:35px;
+    box-shadow:0 12px 28px rgba(255,77,109,0.35);
+}
+
+/* ===== CARD ===== */
+.card{
+    background:#ffffff;
+    padding:30px;
+    border-radius:22px;
+    box-shadow:0 20px 45px rgba(0,0,0,0.15);
+}
+
+/* ===== TABLE ===== */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#ff4d6d;
+    color:white;
+    padding:16px;
+    text-align:left;
+}
+
+td{
+    padding:15px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#fff5f7;
+}
+
+/* ===== BUTTONS ===== */
+.map{
+    background:#2e8b57;
+    color:white;
+    padding:8px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.del{
+    background:#dc3545;
+    color:white;
+    padding:8px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .sidebar{display:none;}
+}
+
+@media(max-width:500px){
+    .stats{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>W-SAFE</h2>
+        <a class="active">🚨 SOS Logs</a>
+        <a href="/logout" class="logout">🚪 Logout</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <h3>📊 Admin SOS Dashboard</h3>
+            <span>👤 Admin</span>
+        </div>
+
+        <!-- STATS -->
+      <div class="stats">
+    <div class="stat">
+        <h2>{{ logs|length }}</h2>
+        <p>Total SOS Alerts</p>
+    </div>
+
+    <div class="stat">
+        <h2>{{ total_users }}</h2>
+        <p>Registered Users</p>
+    </div>
+
+    <div class="stat">
+        <h2>{{ live_sos }}</h2>
+        <p>Live SOS (Last 10 min)</p>
+    </div>
+</div>
+
+
+        <!-- ALERT -->
+        <div class="alert">
+            🚨 SOS Monitoring Active – Stay Alert
+        </div>
+
+        <!-- TABLE -->
+        <div class="card">
+            <h3 style="margin-bottom:18px;">🚨 SOS Alerts</h3>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>User</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>Map</th>
+                    <th>Action</th>
+                </tr>
+
+                {% for s in logs %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ s.name or "Unknown" }}</td>
+                    <td>{{ s.latitude }}, {{ s.longitude }}</td>
+                    <td>{{ s.timestamp }}</td>
+                    <td>
+                        <a class="map" target="_blank"
+                           href="https://maps.google.com?q={{ s.latitude }},{{ s.longitude }}">
+                           View
+                        </a>
+                    </td>
+                    <td>
+                        <a class="del"
+                           href="/admin/delete_sos/{{ s.id }}"
+                           onclick="return confirm('Delete this SOS record?')">
+                           Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
