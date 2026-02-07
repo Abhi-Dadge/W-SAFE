@@ -6,8 +6,6 @@ import os
 
 app = Flask(__name__)
 app.secret_key = "women_safety_secret"
-print("DEBUG API KEY:", os.getenv("OPENAI_API_KEY"))
-
 # client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
@@ -240,6 +238,8 @@ def admin_login():
 @admin_required
 def admin_dashboard():
     conn = get_db_connection()
+    users = conn.execute("SELECT * FROM users ORDER BY id DESC").fetchall()
+
 
     # All SOS logs
     logs = conn.execute("""
@@ -267,7 +267,8 @@ def admin_dashboard():
         "admin.html",
         logs=logs,
         total_users=total_users,
-        live_sos=live_sos
+        live_sos=live_sos,
+        users=users
     )
 
 

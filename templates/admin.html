@@ -271,6 +271,25 @@ tr:hover{
                 {% endfor %}
             </table>
         </div>
+        <h2>Registered Users</h2>
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+</tr>
+
+{% for user in users %}
+<tr>
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+</tr>
+{% endfor %}
+</table>
+
 
     </div>
 </div>
