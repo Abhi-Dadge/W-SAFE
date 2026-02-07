@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 import sqlite3
 from functools import wraps
-from openai import OpenAI
+# from openai import OpenAI
 import os
 
 app = Flask(__name__)
 app.secret_key = "women_safety_secret"
 print("DEBUG API KEY:", os.getenv("OPENAI_API_KEY"))
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 # =========================
