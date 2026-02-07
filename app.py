@@ -25,29 +25,7 @@ def ai_chat():
 
 @app.route("/ai-reply", methods=["POST"])
 def ai_reply():
-    try:
-        user_msg = request.json.get("message")
-
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a calm and supportive women safety assistant."
-                },
-                {
-                    "role": "user",
-                    "content": user_msg
-                }
-            ]
-        )
-
-        reply = response.choices[0].message.content
-        return jsonify({"reply": reply})
-
-    except Exception as e:
-        print("❌ AI ERROR:", e)
-        return jsonify({"reply": "AI is temporarily unavailable."})
+    return jsonify({"reply": "AI is temporarily unavailable."})
 
 # =========================
 # DATABASE CONNECTION
